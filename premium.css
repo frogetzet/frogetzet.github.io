@@ -1,0 +1,120 @@
+/* premium.css — надстройка над style.css (подключается после него) */
+:root{--ink:#0b1f16;--gold:#f5b942;--serif:'Playfair Display',Georgia,serif}
+body{font-family:Manrope,-apple-system,"Segoe UI",Roboto,sans-serif;background:#f6faf7}
+h1,h2,h3,.brand-main-title,.f-main,.score-large-digits,.price-val,.spec-value,.std-num-bubble,.contact-bold-phone,.pickup-main-heading{font-family:var(--serif)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:2000;background:linear-gradient(90deg,#52b788,var(--gold))}
+
+/* шапка */
+.main-site-header{background:rgba(255,255,255,.86);backdrop-filter:saturate(1.6) blur(14px);transition:box-shadow .3s}
+.main-site-header.scrolled{box-shadow:0 10px 30px rgba(11,31,22,.16)}
+.main-navigation-bar{background:var(--ink)}
+.nav-link.is-current{background:var(--gold);color:var(--ink)}
+
+/* главный экран */
+.hero-cover-section{padding:96px 0 110px;background:radial-gradient(900px 520px at 85% 8%,rgba(82,183,136,.35),transparent 60%),radial-gradient(700px 500px at 0 100%,rgba(245,185,66,.15),transparent 60%),linear-gradient(160deg,#0b1f16,#143325 55%,#1f5a41)}
+.hero-cover-section::before{display:none}
+.hero-cover-section::after{content:"";position:absolute;right:-90px;bottom:-130px;width:640px;height:640px;background:url(logo.png) center/contain no-repeat;opacity:.07;filter:brightness(2.4);pointer-events:none}
+.hero-grid-split{position:relative;z-index:1;gap:56px}
+.hero-primary-heading{font-family:var(--serif);font-size:clamp(2.1rem,4.7vw,3.9rem);line-height:1.08;letter-spacing:-.02em;font-weight:800}
+.hero-lead-description{font-size:1.06rem;max-width:56ch;color:#cfe9da}
+.hero-left-column>*{animation:rise .9s cubic-bezier(.2,.8,.2,1) both}
+.hero-left-column>:nth-child(2){animation-delay:.08s}.hero-left-column>:nth-child(3){animation-delay:.16s}
+.hero-left-column>:nth-child(4){animation-delay:.24s}.hero-left-column>:nth-child(5){animation-delay:.32s}
+.hero-right-column{animation:rise 1s .3s cubic-bezier(.2,.8,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(28px)}}
+.btn-hero-primary{position:relative;padding:16px 26px;border-radius:16px;background:linear-gradient(135deg,#f59e0b,#d97706);animation:pulse 2.8s 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 6px 20px rgba(217,119,6,.35),0 0 0 0 rgba(245,158,11,.5)}70%,100%{box-shadow:0 6px 20px rgba(217,119,6,.35),0 0 0 18px rgba(245,158,11,0)}}
+.btn-hero-secondary{border-radius:16px;padding:16px 24px;backdrop-filter:blur(6px)}
+.hero-badge-card{background:linear-gradient(160deg,rgba(255,255,255,.15),rgba(255,255,255,.04));border-radius:34px;padding:38px 32px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.hero-logo-display{width:130px;height:130px;animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-10px)}}
+.spec-value{font-size:24px}
+.hero-card-title{font-family:var(--serif);font-size:25px}
+
+/* лента продукции */
+.mq{background:#fff;border-bottom:1px solid #e3ede7;overflow:hidden;padding:24px 0;position:relative}
+.mq::before,.mq::after{content:"";position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none}
+.mq::before{left:0;background:linear-gradient(90deg,#fff,transparent)}
+.mq::after{right:0;background:linear-gradient(-90deg,#fff,transparent)}
+.mq-track{display:flex;width:max-content;animation:mq 48s linear infinite}
+.mq:hover .mq-track{animation-play-state:paused}
+.mq-item{display:flex;align-items:center;gap:14px;padding-right:48px;font:italic 700 1.25rem var(--serif);color:var(--color-green-dark);white-space:nowrap}
+.mq-item img{width:66px;height:66px;border-radius:50%;object-fit:cover;border:3px solid var(--color-green-mint);box-shadow:0 6px 16px rgba(11,31,22,.12)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* заголовки секций */
+.heading-title-large{font-family:var(--serif);font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.12;letter-spacing:-.02em}
+.eyebrow-tag{text-transform:none;letter-spacing:0;font-size:14px;font-weight:700;color:var(--color-amber-primary);background:transparent;border:0;padding:0}
+.heading-subtitle-lead{font-size:16px}
+
+/* метод Михайлова — тёмная секция */
+.tech-method-section{padding:100px 0;border:0;background:radial-gradient(800px 420px at 8% 0,rgba(82,183,136,.22),transparent 60%),#0f2a1e}
+.tech-method-section .heading-title-large{color:#fff}
+.tech-method-section .heading-subtitle-lead{color:#b7d6c4}
+.tech-method-section .eyebrow-tag{color:var(--gold)}
+.method-card-box{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.12);border-radius:24px;padding:34px}
+.method-card-box:hover{background:rgba(255,255,255,.09);border-color:rgba(245,185,66,.55);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+.method-icon-circle{width:62px;height:62px;border:0;border-radius:18px;color:#1b2b20;background:linear-gradient(135deg,#f5d27a,#e8a020)}
+.method-card-content h3{color:#fff;font-family:var(--serif);font-size:1.3rem}
+.method-card-content p{color:#bfd9ca;font-size:14px}
+.method-card-perk{background:rgba(82,183,136,.16);border-color:rgba(82,183,136,.35);color:#d8f3dc}
+
+/* стандарты качества */
+.why-us-section{padding:100px 0;background:#f6faf7}
+.standard-feature-item{border-radius:24px;padding:30px;border-color:transparent;box-shadow:0 12px 30px rgba(11,31,22,.07)}
+.std-num-bubble{width:auto;height:auto;background:none;font-size:3.2rem;line-height:.9;font-weight:800;color:transparent;-webkit-text-stroke:1.5px var(--color-amber-primary)}
+.catalog-teaser-panel{border-radius:32px;padding:40px 46px;background:radial-gradient(520px 260px at 100% 0,rgba(245,185,66,.28),transparent 60%),linear-gradient(135deg,#0f2a1e,#2d6a4f)}
+
+/* каталог */
+.farm-catalog-section{padding:100px 0;background:#fff}
+.butcher-service-banner{border-radius:22px}
+.filter-tab-btn{padding:12px 24px;background:#fff}
+.filter-tab-btn.active{background:var(--ink);border-color:var(--ink);box-shadow:0 8px 20px rgba(11,31,22,.25)}
+.catalog-cards-grid{gap:30px}
+.product-item-card{border-radius:26px;border-color:transparent;box-shadow:0 1px 3px rgba(11,31,22,.06),0 14px 34px rgba(11,31,22,.08);animation:pop .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{from{opacity:0;transform:scale(.94)}}
+.product-item-card:hover{transform:translateY(-8px);box-shadow:0 28px 56px rgba(11,31,22,.2)}
+.card-image-box{height:240px;background:radial-gradient(circle at 50% 35%,#fff 0,#d9eadf 100%)}
+.card-image-box img{mix-blend-mode:multiply}
+.card-body-content{padding:24px}
+.product-title-text{font-family:var(--serif);font-size:20px}
+.price-val{font-size:30px;color:var(--color-amber-primary)}
+.product-desc-text{font-size:13px}
+.btn-order-product{background:var(--ink);color:#fff;border:0;border-radius:14px;padding:14px}
+.btn-order-product:hover{background:var(--color-amber-primary);border:0}
+.catalog-summary-panel{border-radius:28px}
+
+/* отзывы */
+.reviews-feedback-section{padding:100px 0;background:linear-gradient(#eef7f2,#f6faf7)}
+.reviews-score-banner{background:linear-gradient(135deg,#0f2a1e,#1f5a41);border:0;border-radius:30px;padding:36px 44px;color:#fff}
+.score-large-digits{color:#fff;font-size:68px}
+.score-caption-text{color:#b7d6c4}
+.score-benefit-chip{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2);color:#fff}
+.score-benefit-chip i{color:var(--gold)}
+.review-single-card{border-radius:26px;border-color:transparent;position:relative;overflow:hidden;box-shadow:0 12px 30px rgba(11,31,22,.07)}
+.review-single-card::before{content:"\201C";position:absolute;right:20px;top:-8px;font:800 120px/1 var(--serif);color:var(--color-green-mint)}
+.review-header-flex,.bought-item-pill,.review-message-text{position:relative}
+.review-message-text{font-size:14px}
+.add-review-section-box{border-radius:32px;border-color:transparent;box-shadow:0 20px 50px rgba(11,31,22,.08)}
+.btn-publish-feedback{background:var(--ink);border-radius:14px}
+
+/* самовывоз и подвал */
+.pickup-and-contacts-section{padding:100px 0}
+.pickup-unified-layout{border-radius:36px;border-color:transparent;background:linear-gradient(135deg,#eef7f2,#fff);box-shadow:0 30px 70px rgba(11,31,22,.1)}
+.pickup-main-heading{font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.15}
+.memo-white-card{border-radius:28px;border-color:transparent;box-shadow:0 24px 54px rgba(11,31,22,.14);transform:rotate(1.2deg)}
+.main-site-footer{background:radial-gradient(700px 300px at 0 0,rgba(82,183,136,.12),transparent 60%),#0b1f16}
+
+/* нижняя панель звонка: на компьютере — плавающая «таблетка» */
+@media(min-width:993px){
+ .mobile-sticky-quickdial-bar{left:50%;right:auto;bottom:18px;width:min(560px,92%);transform:translateX(-50%);border:0;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);box-shadow:0 14px 40px rgba(11,31,22,.28)}
+}
+@media(max-width:992px){.memo-white-card{transform:none}}
+@media(max-width:768px){
+ .hero-cover-section{padding:60px 0 70px}
+ .tech-method-section,.why-us-section,.farm-catalog-section,.reviews-feedback-section,.pickup-and-contacts-section{padding:70px 0}
+ .mq-item img{width:50px;height:50px}.mq-item{font-size:1.05rem}
+ .card-image-box{height:210px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
